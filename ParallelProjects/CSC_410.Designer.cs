@@ -32,10 +32,10 @@
             this.seed_finder_button = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.mat_mul_textbox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.seed_finder_textbox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -51,6 +51,7 @@
             this.mat_mul_button.TabIndex = 0;
             this.mat_mul_button.Text = "Matrix Multiplication";
             this.mat_mul_button.UseVisualStyleBackColor = true;
+            this.mat_mul_button.Click += new System.EventHandler(this.mat_mul_button_Click);
             // 
             // seed_finder_button
             // 
@@ -61,6 +62,7 @@
             this.seed_finder_button.TabIndex = 1;
             this.seed_finder_button.Text = "Seed Finder";
             this.seed_finder_button.UseVisualStyleBackColor = true;
+            this.seed_finder_button.Click += new System.EventHandler(this.seed_finder_button_Click);
             // 
             // button3
             // 
@@ -82,14 +84,14 @@
             this.button4.Text = "Other Program";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // mat_mul_textbox
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 132);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(300, 497);
-            this.textBox1.TabIndex = 4;
+            this.mat_mul_textbox.Location = new System.Drawing.Point(12, 132);
+            this.mat_mul_textbox.Multiline = true;
+            this.mat_mul_textbox.Name = "mat_mul_textbox";
+            this.mat_mul_textbox.ReadOnly = true;
+            this.mat_mul_textbox.Size = new System.Drawing.Size(300, 497);
+            this.mat_mul_textbox.TabIndex = 4;
             // 
             // label1
             // 
@@ -111,14 +113,14 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Output";
             // 
-            // textBox2
+            // seed_finder_textbox
             // 
-            this.textBox2.Location = new System.Drawing.Point(318, 132);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(300, 497);
-            this.textBox2.TabIndex = 6;
+            this.seed_finder_textbox.Location = new System.Drawing.Point(318, 132);
+            this.seed_finder_textbox.Multiline = true;
+            this.seed_finder_textbox.Name = "seed_finder_textbox";
+            this.seed_finder_textbox.ReadOnly = true;
+            this.seed_finder_textbox.Size = new System.Drawing.Size(300, 497);
+            this.seed_finder_textbox.TabIndex = 6;
             // 
             // label3
             // 
@@ -168,9 +170,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.seed_finder_textbox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.mat_mul_textbox);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.seed_finder_button);
@@ -188,10 +190,10 @@
         private System.Windows.Forms.Button seed_finder_button;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox mat_mul_textbox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox seed_finder_textbox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label4;

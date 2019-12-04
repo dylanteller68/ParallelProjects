@@ -16,5 +16,17 @@ namespace ParallelProjects
         {
             InitializeComponent();
         }
+
+        private void mat_mul_button_Click(object sender, EventArgs e)
+        {
+            // run matrix multiplication program
+            mat_mul_textbox.Text = "Lots of data processed";
+        }
+
+        private void seed_finder_button_Click(object sender, EventArgs e)
+        {
+            // run seed finder program
+            seed_finder_textbox.Text = "Lot of data processed";
+        }
     }
 }
