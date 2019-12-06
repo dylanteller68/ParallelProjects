@@ -37,7 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.seed_finder_textbox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.AleOutput = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -46,7 +46,7 @@
             // 
             this.mat_mul_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mat_mul_button.Location = new System.Drawing.Point(9, 10);
-            this.mat_mul_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mat_mul_button.Margin = new System.Windows.Forms.Padding(2);
             this.mat_mul_button.Name = "mat_mul_button";
             this.mat_mul_button.Size = new System.Drawing.Size(225, 52);
             this.mat_mul_button.TabIndex = 0;
@@ -58,7 +58,7 @@
             // 
             this.seed_finder_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.seed_finder_button.Location = new System.Drawing.Point(238, 10);
-            this.seed_finder_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.seed_finder_button.Margin = new System.Windows.Forms.Padding(2);
             this.seed_finder_button.Name = "seed_finder_button";
             this.seed_finder_button.Size = new System.Drawing.Size(225, 52);
             this.seed_finder_button.TabIndex = 1;
@@ -70,18 +70,19 @@
             // 
             this.Ale_Program.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Ale_Program.Location = new System.Drawing.Point(468, 10);
-            this.Ale_Program.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Ale_Program.Margin = new System.Windows.Forms.Padding(2);
             this.Ale_Program.Name = "Ale_Program";
             this.Ale_Program.Size = new System.Drawing.Size(225, 52);
             this.Ale_Program.TabIndex = 2;
-            this.Ale_Program.Text = "Ale Async (tbd)";
+            this.Ale_Program.Text = "Grid Manipulator";
             this.Ale_Program.UseVisualStyleBackColor = true;
+            this.Ale_Program.Click += new System.EventHandler(this.Ale_Program_Click);
             // 
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Location = new System.Drawing.Point(698, 10);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(225, 52);
             this.button4.TabIndex = 3;
@@ -91,7 +92,7 @@
             // mat_mul_textbox
             // 
             this.mat_mul_textbox.Location = new System.Drawing.Point(9, 107);
-            this.mat_mul_textbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mat_mul_textbox.Margin = new System.Windows.Forms.Padding(2);
             this.mat_mul_textbox.Multiline = true;
             this.mat_mul_textbox.Name = "mat_mul_textbox";
             this.mat_mul_textbox.ReadOnly = true;
@@ -123,7 +124,7 @@
             // seed_finder_textbox
             // 
             this.seed_finder_textbox.Location = new System.Drawing.Point(238, 107);
-            this.seed_finder_textbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.seed_finder_textbox.Margin = new System.Windows.Forms.Padding(2);
             this.seed_finder_textbox.Multiline = true;
             this.seed_finder_textbox.Name = "seed_finder_textbox";
             this.seed_finder_textbox.ReadOnly = true;
@@ -141,15 +142,15 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "Output";
             // 
-            // textBox3
+            // AleOutput
             // 
-            this.textBox3.Location = new System.Drawing.Point(468, 107);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(226, 405);
-            this.textBox3.TabIndex = 8;
+            this.AleOutput.Location = new System.Drawing.Point(468, 107);
+            this.AleOutput.Margin = new System.Windows.Forms.Padding(2);
+            this.AleOutput.Multiline = true;
+            this.AleOutput.Name = "AleOutput";
+            this.AleOutput.ReadOnly = true;
+            this.AleOutput.Size = new System.Drawing.Size(226, 405);
+            this.AleOutput.TabIndex = 8;
             // 
             // label4
             // 
@@ -165,7 +166,7 @@
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(697, 107);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
@@ -180,7 +181,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.AleOutput);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.seed_finder_textbox);
             this.Controls.Add(this.label1);
@@ -189,7 +190,7 @@
             this.Controls.Add(this.Ale_Program);
             this.Controls.Add(this.seed_finder_button);
             this.Controls.Add(this.mat_mul_button);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CSC_410";
             this.Text = "CSC 410";
             this.ResumeLayout(false);
@@ -208,7 +209,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox seed_finder_textbox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox AleOutput;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox4;
     }
