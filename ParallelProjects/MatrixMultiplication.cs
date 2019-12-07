@@ -26,7 +26,7 @@ namespace ParallelProjects
             {
                 MaxDegreeOfParallelism = 2
             };
-
+            
             // Matrix Multiplication using Parallel.For()
             Parallel.For(0, matrixSize, options, i =>
             {
