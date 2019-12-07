@@ -59,7 +59,7 @@
             // seed_finder_button
             // 
             this.seed_finder_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.seed_finder_button.Location = new System.Drawing.Point(417, 12);
+            this.seed_finder_button.Location = new System.Drawing.Point(509, 15);
             this.seed_finder_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.seed_finder_button.Name = "seed_finder_button";
             this.seed_finder_button.Size = new System.Drawing.Size(400, 64);
@@ -71,7 +71,7 @@
             // Ale_Program
             // 
             this.Ale_Program.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ale_Program.Location = new System.Drawing.Point(823, 12);
+            this.Ale_Program.Location = new System.Drawing.Point(1013, 15);
             this.Ale_Program.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Ale_Program.Name = "Ale_Program";
             this.Ale_Program.Size = new System.Drawing.Size(400, 64);
@@ -83,7 +83,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(1228, 12);
+            this.button4.Location = new System.Drawing.Point(1513, 15);
             this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(400, 64);
@@ -115,7 +115,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(563, 93);
+            this.label2.Location = new System.Drawing.Point(655, 96);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(109, 29);
@@ -126,7 +126,7 @@
             // 
             this.seed_finder_textbox.BackColor = System.Drawing.SystemColors.Control;
             this.seed_finder_textbox.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.seed_finder_textbox.Location = new System.Drawing.Point(418, 132);
+            this.seed_finder_textbox.Location = new System.Drawing.Point(510, 135);
             this.seed_finder_textbox.Margin = new System.Windows.Forms.Padding(4);
             this.seed_finder_textbox.Multiline = true;
             this.seed_finder_textbox.Name = "seed_finder_textbox";
@@ -138,7 +138,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(979, 100);
+            this.label3.Location = new System.Drawing.Point(1169, 103);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 29);
             this.label3.TabIndex = 9;
@@ -146,7 +146,7 @@
             // 
             // AleOutput
             // 
-            this.AleOutput.Location = new System.Drawing.Point(823, 132);
+            this.AleOutput.Location = new System.Drawing.Point(1013, 135);
             this.AleOutput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AleOutput.Multiline = true;
             this.AleOutput.Name = "AleOutput";
@@ -158,7 +158,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(1384, 100);
+            this.label4.Location = new System.Drawing.Point(1670, 93);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(84, 29);
             this.label4.TabIndex = 11;
@@ -166,7 +166,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(1228, 132);
+            this.textBox4.Location = new System.Drawing.Point(1513, 132);
             this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
@@ -177,7 +177,7 @@
             // GridStatus
             // 
             this.GridStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GridStatus.Location = new System.Drawing.Point(823, 105);
+            this.GridStatus.Location = new System.Drawing.Point(1013, 108);
             this.GridStatus.Margin = new System.Windows.Forms.Padding(4);
             this.GridStatus.Name = "GridStatus";
             this.GridStatus.ReadOnly = true;
@@ -188,7 +188,7 @@
             // StatusCopy
             // 
             this.StatusCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StatusCopy.Location = new System.Drawing.Point(1073, 105);
+            this.StatusCopy.Location = new System.Drawing.Point(1263, 108);
             this.StatusCopy.Margin = new System.Windows.Forms.Padding(4);
             this.StatusCopy.Name = "StatusCopy";
             this.StatusCopy.ReadOnly = true;
@@ -217,6 +217,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "CSC_410";
             this.Text = "CSC 410";
+            this.Load += new System.EventHandler(this.CSC_410_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

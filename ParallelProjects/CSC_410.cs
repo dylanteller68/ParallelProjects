@@ -177,5 +177,11 @@ namespace ParallelProjects
                 seed_finder_button.Text = "Start Seed Finder";
             }
         }
+
+        private void CSC_410_Load(object sender, EventArgs e)
+        {
+            Width += 290;
+            CenterToScreen();
+        }
     }
 }
