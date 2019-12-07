@@ -18,6 +18,51 @@ namespace ParallelProjects
 			InitializeComponent();
 		}
 
+		private void mat_mul_button_Click(object sender, EventArgs e)
+		{
+            int matrixSize = 6;
+            int[,] inMatrixOne = new int[matrixSize, matrixSize];
+            int[,] inMatrixTwo = new int[matrixSize, matrixSize];
+            int[,] outMatrix = new int[matrixSize, matrixSize];
+
+            MatrixMultiplication matrixMul = new MatrixMultiplication(matrixSize);
+            matrixMul.Execute(inMatrixOne, inMatrixTwo, outMatrix);
+
+            // Print Input Matrices
+            mat_mul_textbox.AppendText("Matrix One: \r\n");
+            PrintMatrix(inMatrixOne);
+
+            mat_mul_textbox.AppendText("Matrix Two: \r\n");
+            PrintMatrix(inMatrixTwo);
+
+            // Print Output Matrix
+            mat_mul_textbox.AppendText("Output Matrix: \r\n");
+            PrintMatrix(outMatrix);
+
+            // Method to print a matrix
+            void PrintMatrix(int[,] mat)
+            {
+                int i, j;
+
+                for (i = 0; i < matrixSize; ++i)
+                {
+                    for (j = 0; j < matrixSize; ++j)
+                    {
+                        mat_mul_textbox.AppendText($"  {mat[i, j]}  ");
+                    }
+                    mat_mul_textbox.AppendText("\r\n");
+                }
+
+                mat_mul_textbox.AppendText("\r\n");
+            }
+        }
+
+		private void seed_finder_button_Click(object sender, EventArgs e)
+		{
+			// run seed finder program
+			seed_finder_textbox.Text = "Lot of data processed";
+		}
+
 		private void Ale_Program_Click(object sender, EventArgs e)
 		{
 			Grid threadGrid = new Grid();
