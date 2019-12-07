@@ -35,12 +35,15 @@ namespace ParallelProjects
             {
                 SeedFinderProgram seedFinder = new SeedFinderProgram();
                 string input = seed_finder_textbox.Text.Remove(0, 17);
-                seed_finder_button.Text = "Canel";
+                seed_finder_button.Text = "Cancel";
+                var watch = System.Diagnostics.Stopwatch.StartNew();
                 var task = await Task.Run(() =>
                 {
                     return seedFinder.run(input);
                 });
-                seed_finder_textbox.Text += Environment.NewLine + task;
+                watch.Stop();
+                var elapsedTime = (float)watch.ElapsedMilliseconds / 1000;
+                seed_finder_textbox.Text += Environment.NewLine + task + Environment.NewLine + elapsedTime.ToString() + " Seconds elapsed";
                 seed_finder_button.Text = "Start Seed Finder";
                 seed_finder_textbox.ReadOnly = true;
             }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Collections.Concurrent;
 using System.Threading.Tasks;
 
 namespace ParallelProjects
@@ -12,27 +13,33 @@ namespace ParallelProjects
         {
             int[] randNums = new int[5];
             int seed = -1;
-            int i;
+            bool seedHasNotBeenFound = true;
+            int j, start = 0, max = 10000;
             string result = "Seed: ";
             string[] splitInput = input.Split(' ');
-            for (i = 0; i < 5; i++)
-                randNums[i] = int.Parse(splitInput[i]);
+            for (j = 0; j < 5; j++)
+                randNums[j] = int.Parse(splitInput[j]);
 
-            i = 0;
-            int j;
-
-            while (seed < 0)
+            while (seedHasNotBeenFound)
             {
-                Random random = new Random(i);
-                for (j = 0; j < 5; j++)
+                Parallel.For(start, max, (i, state) =>
                 {
-                    int genRand = random.Next();
-                    if (genRand != randNums[j])
-                        break;
-                }
-                if (j == 5)
-                    seed = i;
-                i++;
+                    Random random = new Random(i);
+                    for (j = 0; j < 5; j++)
+                    {
+                        int genRand = random.Next();
+                        if (genRand != randNums[j])
+                            break;
+                    }
+                    if (j == 5)
+                    {
+                        seed = i;
+                        seedHasNotBeenFound = false;
+                    }
+                    i++;
+                });
+                start += 10000;
+                max += 10000;
             }
 
             result += seed.ToString();
