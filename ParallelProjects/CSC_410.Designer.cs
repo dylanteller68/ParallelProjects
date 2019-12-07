@@ -64,7 +64,7 @@
             this.seed_finder_button.Name = "seed_finder_button";
             this.seed_finder_button.Size = new System.Drawing.Size(300, 52);
             this.seed_finder_button.TabIndex = 1;
-            this.seed_finder_button.Text = "Seed Finder";
+            this.seed_finder_button.Text = "Start Seed Finder";
             this.seed_finder_button.UseVisualStyleBackColor = true;
             this.seed_finder_button.Click += new System.EventHandler(this.seed_finder_button_Click);
             // 
@@ -116,17 +116,17 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(430, 81);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(414, 100);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 24);
+            this.label2.Size = new System.Drawing.Size(109, 29);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Output";
+            this.label2.Text = "Terminal";
             // 
             // seed_finder_textbox
             // 
-            this.seed_finder_textbox.Location = new System.Drawing.Point(313, 107);
-            this.seed_finder_textbox.Margin = new System.Windows.Forms.Padding(2);
+            this.seed_finder_textbox.BackColor = System.Drawing.SystemColors.Control;
+            this.seed_finder_textbox.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.seed_finder_textbox.Location = new System.Drawing.Point(318, 132);
             this.seed_finder_textbox.Multiline = true;
             this.seed_finder_textbox.Name = "seed_finder_textbox";
             this.seed_finder_textbox.ReadOnly = true;
