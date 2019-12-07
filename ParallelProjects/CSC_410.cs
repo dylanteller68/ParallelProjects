@@ -57,12 +57,6 @@ namespace ParallelProjects
             }
         }
 
-		private void seed_finder_button_Click(object sender, EventArgs e)
-		{
-			// run seed finder program
-			seed_finder_textbox.Text = "Lot of data processed";
-		}
-
 		private void Ale_Program_Click(object sender, EventArgs e)
 		{
 			Grid threadGrid = new Grid();
@@ -182,11 +176,6 @@ namespace ParallelProjects
                 seed_finder_textbox.Text += Environment.NewLine + task + Environment.NewLine + elapsedTime.ToString() + " Seconds elapsed";
                 seed_finder_button.Text = "Start Seed Finder";
             }
-        }
-
-        private void mat_mul_button_Click(object sender, EventArgs e)
-        {
-            mat_mul_textbox.Text += "Lots of data processed" + Environment.NewLine;
         }
     }
 }
