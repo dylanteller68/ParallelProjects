@@ -40,12 +40,13 @@ namespace ParallelProjects
 			threadGrid.fillGrid(A, 2, 20);
 			threadGrid.fillGrid(B, 2, 1);
 
-			AleOutput.AppendText("Gen: 0--\n");
+			AleOutput.AppendText("Gen: 0--\r\n");
 			printGrid(A);
 
 			int gen_count, temp_row, temp_column, temp;
 			int gen_limit = 10;
 
+			GridStatus.Text = "Computing";
 			for (gen_count = 1; gen_count <= gen_limit; gen_count++)
 			{
 				Parallel.For(0, threadGrid.cell_count, i =>
@@ -65,7 +66,16 @@ namespace ParallelProjects
 					}
 				});
 
-				AleOutput.AppendText($"\n\nGen: {gen_count}--");
+				if (gen_count % 4 == 0) 
+				{ 
+					GridStatus.Text = "Computing";
+					StatusCopy.Text = "Computing";
+				} else { 
+					GridStatus.AppendText(" .");
+					StatusCopy.AppendText(" .");
+				}
+
+				AleOutput.AppendText($"\r\nGen: {gen_count}--");
 
 				if (gen_count % 2 == 0)
 				{
@@ -79,13 +89,16 @@ namespace ParallelProjects
 				}
 			}
 
+			GridStatus.Text = "Complete!";
+			StatusCopy.Text = "Complete!";
+
 
 			// print out the grid
 			void printGrid(int[,] MyGrid)
 			{
 				int row, column;
 
-				AleOutput.AppendText("\n");
+				AleOutput.AppendText("\r\n");
 
 				for (row = 0; row < threadGrid.rows; row++)
 				{
@@ -94,11 +107,16 @@ namespace ParallelProjects
 						AleOutput.AppendText($"{MyGrid[row, column]} ");
 
 						if (MyGrid[row, column] < 10)
-							AleOutput.AppendText("\n");
+							AleOutput.AppendText(" ");
 					}
-					AleOutput.AppendText("\n");
+					AleOutput.AppendText("\r\n");
 				}
 			}
+		}
+
+		private void GridStatus_TextChanged(object sender, EventArgs e)
+		{
+
 		}
 	}
 }
