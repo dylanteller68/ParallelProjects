@@ -30,24 +30,27 @@
         {
             this.mat_mul_button = new System.Windows.Forms.Button();
             this.seed_finder_button = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.Ale_Program = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.mat_mul_textbox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.seed_finder_textbox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.AleOutput = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
+            this.GridStatus = new System.Windows.Forms.TextBox();
+            this.StatusCopy = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // mat_mul_button
             // 
             this.mat_mul_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mat_mul_button.Location = new System.Drawing.Point(12, 12);
+            this.mat_mul_button.Location = new System.Drawing.Point(9, 10);
+            this.mat_mul_button.Margin = new System.Windows.Forms.Padding(2);
             this.mat_mul_button.Name = "mat_mul_button";
-            this.mat_mul_button.Size = new System.Drawing.Size(300, 64);
+            this.mat_mul_button.Size = new System.Drawing.Size(300, 52);
             this.mat_mul_button.TabIndex = 0;
             this.mat_mul_button.Text = "Matrix Multiplication";
             this.mat_mul_button.UseVisualStyleBackColor = true;
@@ -56,50 +59,56 @@
             // seed_finder_button
             // 
             this.seed_finder_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.seed_finder_button.Location = new System.Drawing.Point(318, 12);
+            this.seed_finder_button.Location = new System.Drawing.Point(313, 10);
+            this.seed_finder_button.Margin = new System.Windows.Forms.Padding(2);
             this.seed_finder_button.Name = "seed_finder_button";
-            this.seed_finder_button.Size = new System.Drawing.Size(300, 64);
+            this.seed_finder_button.Size = new System.Drawing.Size(300, 52);
             this.seed_finder_button.TabIndex = 1;
             this.seed_finder_button.Text = "Seed Finder";
             this.seed_finder_button.UseVisualStyleBackColor = true;
             this.seed_finder_button.Click += new System.EventHandler(this.seed_finder_button_Click);
             // 
-            // button3
+            // Ale_Program
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(624, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(300, 64);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Other Program";
-            this.button3.UseVisualStyleBackColor = true;
+            this.Ale_Program.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ale_Program.Location = new System.Drawing.Point(617, 10);
+            this.Ale_Program.Margin = new System.Windows.Forms.Padding(2);
+            this.Ale_Program.Name = "Ale_Program";
+            this.Ale_Program.Size = new System.Drawing.Size(300, 52);
+            this.Ale_Program.TabIndex = 2;
+            this.Ale_Program.Text = "Grid Manipulator";
+            this.Ale_Program.UseVisualStyleBackColor = true;
+            this.Ale_Program.Click += new System.EventHandler(this.Ale_Program_Click);
             // 
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(930, 12);
+            this.button4.Location = new System.Drawing.Point(921, 10);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(300, 64);
+            this.button4.Size = new System.Drawing.Size(300, 52);
             this.button4.TabIndex = 3;
             this.button4.Text = "Other Program";
             this.button4.UseVisualStyleBackColor = true;
             // 
             // mat_mul_textbox
             // 
-            this.mat_mul_textbox.Location = new System.Drawing.Point(12, 132);
+            this.mat_mul_textbox.Location = new System.Drawing.Point(9, 107);
+            this.mat_mul_textbox.Margin = new System.Windows.Forms.Padding(2);
             this.mat_mul_textbox.Multiline = true;
             this.mat_mul_textbox.Name = "mat_mul_textbox";
             this.mat_mul_textbox.ReadOnly = true;
-            this.mat_mul_textbox.Size = new System.Drawing.Size(300, 497);
+            this.mat_mul_textbox.Size = new System.Drawing.Size(300, 567);
             this.mat_mul_textbox.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(120, 100);
+            this.label1.Location = new System.Drawing.Point(126, 81);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 29);
+            this.label1.Size = new System.Drawing.Size(66, 24);
             this.label1.TabIndex = 5;
             this.label1.Text = "Output";
             // 
@@ -107,76 +116,104 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(426, 100);
+            this.label2.Location = new System.Drawing.Point(430, 81);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 29);
+            this.label2.Size = new System.Drawing.Size(66, 24);
             this.label2.TabIndex = 7;
             this.label2.Text = "Output";
             // 
             // seed_finder_textbox
             // 
-            this.seed_finder_textbox.Location = new System.Drawing.Point(318, 132);
+            this.seed_finder_textbox.Location = new System.Drawing.Point(313, 107);
+            this.seed_finder_textbox.Margin = new System.Windows.Forms.Padding(2);
             this.seed_finder_textbox.Multiline = true;
             this.seed_finder_textbox.Name = "seed_finder_textbox";
             this.seed_finder_textbox.ReadOnly = true;
-            this.seed_finder_textbox.Size = new System.Drawing.Size(300, 497);
+            this.seed_finder_textbox.Size = new System.Drawing.Size(300, 567);
             this.seed_finder_textbox.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(732, 100);
+            this.label3.Location = new System.Drawing.Point(734, 81);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 29);
+            this.label3.Size = new System.Drawing.Size(66, 24);
             this.label3.TabIndex = 9;
             this.label3.Text = "Output";
             // 
-            // textBox3
+            // AleOutput
             // 
-            this.textBox3.Location = new System.Drawing.Point(624, 132);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(300, 497);
-            this.textBox3.TabIndex = 8;
+            this.AleOutput.Location = new System.Drawing.Point(617, 107);
+            this.AleOutput.Margin = new System.Windows.Forms.Padding(2);
+            this.AleOutput.Multiline = true;
+            this.AleOutput.Name = "AleOutput";
+            this.AleOutput.ReadOnly = true;
+            this.AleOutput.Size = new System.Drawing.Size(300, 567);
+            this.AleOutput.TabIndex = 8;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(1037, 100);
+            this.label4.Location = new System.Drawing.Point(1038, 81);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 29);
+            this.label4.Size = new System.Drawing.Size(66, 24);
             this.label4.TabIndex = 11;
             this.label4.Text = "Output";
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(929, 132);
+            this.textBox4.Location = new System.Drawing.Point(921, 107);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(300, 497);
+            this.textBox4.Size = new System.Drawing.Size(300, 567);
             this.textBox4.TabIndex = 10;
+            // 
+            // GridStatus
+            // 
+            this.GridStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GridStatus.Location = new System.Drawing.Point(617, 85);
+            this.GridStatus.Name = "GridStatus";
+            this.GridStatus.ReadOnly = true;
+            this.GridStatus.Size = new System.Drawing.Size(112, 17);
+            this.GridStatus.TabIndex = 13;
+            this.GridStatus.TextChanged += new System.EventHandler(this.GridStatus_TextChanged);
+            // 
+            // StatusCopy
+            // 
+            this.StatusCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StatusCopy.Location = new System.Drawing.Point(805, 85);
+            this.StatusCopy.Name = "StatusCopy";
+            this.StatusCopy.ReadOnly = true;
+            this.StatusCopy.Size = new System.Drawing.Size(112, 17);
+            this.StatusCopy.TabIndex = 14;
             // 
             // CSC_410
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1241, 641);
+            this.ClientSize = new System.Drawing.Size(1232, 685);
+            this.Controls.Add(this.StatusCopy);
+            this.Controls.Add(this.GridStatus);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.AleOutput);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.seed_finder_textbox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.mat_mul_textbox);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.Ale_Program);
             this.Controls.Add(this.seed_finder_button);
             this.Controls.Add(this.mat_mul_button);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CSC_410";
             this.Text = "CSC 410";
             this.ResumeLayout(false);
@@ -188,16 +225,18 @@
 
         private System.Windows.Forms.Button mat_mul_button;
         private System.Windows.Forms.Button seed_finder_button;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button Ale_Program;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox mat_mul_textbox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox seed_finder_textbox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox AleOutput;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox GridStatus;
+        private System.Windows.Forms.TextBox StatusCopy;
     }
 }
 
