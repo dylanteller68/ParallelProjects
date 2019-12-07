@@ -47,6 +47,8 @@ namespace ParallelProjects
 			int gen_limit = 10;
 
 			GridStatus.Text = "Computing";
+			StatusCopy.Text = "Computing";
+
 			for (gen_count = 1; gen_count <= gen_limit; gen_count++)
 			{
 				Parallel.For(0, threadGrid.cell_count, i =>
