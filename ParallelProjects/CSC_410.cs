@@ -18,7 +18,7 @@ namespace ParallelProjects
 			InitializeComponent();
 		}
 
-		private void mat_mul_button_Click(object sender, EventArgs e)
+		private async void mat_mul_button_Click(object sender, EventArgs e)
 		{
             int matrixSize = 6;
             int[,] inMatrixOne = new int[matrixSize, matrixSize];
@@ -26,7 +26,12 @@ namespace ParallelProjects
             int[,] outMatrix = new int[matrixSize, matrixSize];
 
             MatrixMultiplication matrixMul = new MatrixMultiplication(matrixSize);
-            matrixMul.Execute(inMatrixOne, inMatrixTwo, outMatrix);
+            mat_mul_textbox.AppendText("Calculating...\n");
+            await Task.Run(() =>
+            {
+                Thread.Sleep(2500);
+                matrixMul.Execute(inMatrixOne, inMatrixTwo, outMatrix);
+            });
 
             // Print Input Matrices
             mat_mul_textbox.AppendText("Matrix One: \r\n");
