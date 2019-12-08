@@ -188,5 +188,50 @@ namespace ParallelProjects
             Width += 290;
             CenterToScreen();
         }
+
+        private void Sort_Button_Click(object sender, EventArgs e)
+        {
+            if (Sort_Button.Text == "Sort Start")
+            {
+                sortTextbox.Text = "How many values to sort?";
+                Sort_Button.Text = "Run";
+                sortTextbox.ReadOnly = false;
+            }
+            else if (Sort_Button.Text == "Run")
+            {
+                
+                Sort_Button.Text = "Reset";
+                string n = sortTextbox.Text.Remove(0, 24);
+                int N;
+                N = Convert.ToInt32(n);
+                int[] A = new int[N];
+                Sorting sorting = new Sorting();
+
+                sorting.GenVals(A, N);
+                sortTextbox.Text += Environment.NewLine + "Array Presorting: " + Environment.NewLine;
+
+                int i;
+                for (i = 0; i < N; ++i)
+                {
+                    sortTextbox.Text += A[i] + " ";
+                }
+                var watch = System.Diagnostics.Stopwatch.StartNew();
+                sorting.sort(A, N);
+                watch.Stop();
+
+                string TimeTaken = Convert.ToString(watch.ElapsedMilliseconds);
+                sortTextbox.Text += Environment.NewLine + "Array Post-sorting: Sorting took: " + TimeTaken + "ms" + Environment.NewLine;
+
+                for (i = 0; i < N; ++i)
+                {
+                    sortTextbox.Text += A[i] + " ";
+                }
+            }
+            else
+            {
+                sortTextbox.Text = "";
+                Sort_Button.Text = "Sort Start";
+            }
+        }
     }
 }
