@@ -31,7 +31,7 @@
             this.mat_mul_button = new System.Windows.Forms.Button();
             this.seed_finder_button = new System.Windows.Forms.Button();
             this.Ale_Program = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.Sort_Button = new System.Windows.Forms.Button();
             this.mat_mul_textbox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,7 +39,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.AleOutput = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.sortTextbox = new System.Windows.Forms.TextBox();
             this.GridStatus = new System.Windows.Forms.TextBox();
             this.StatusCopy = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -80,16 +80,17 @@
             this.Ale_Program.UseVisualStyleBackColor = true;
             this.Ale_Program.Click += new System.EventHandler(this.Ale_Program_Click);
             // 
-            // button4
+            // Sort_Button
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(1513, 15);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(400, 64);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Other Program";
-            this.button4.UseVisualStyleBackColor = true;
+            this.Sort_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Sort_Button.Location = new System.Drawing.Point(1513, 15);
+            this.Sort_Button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Sort_Button.Name = "Sort_Button";
+            this.Sort_Button.Size = new System.Drawing.Size(400, 64);
+            this.Sort_Button.TabIndex = 3;
+            this.Sort_Button.Text = "Sort Start";
+            this.Sort_Button.UseVisualStyleBackColor = true;
+            this.Sort_Button.Click += new System.EventHandler(this.Sort_Button_Click);
             // 
             // mat_mul_textbox
             // 
@@ -164,15 +165,15 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "Output";
             // 
-            // textBox4
+            // sortTextbox
             // 
-            this.textBox4.Location = new System.Drawing.Point(1513, 132);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(399, 697);
-            this.textBox4.TabIndex = 10;
+            this.sortTextbox.Location = new System.Drawing.Point(1513, 132);
+            this.sortTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.sortTextbox.Multiline = true;
+            this.sortTextbox.Name = "sortTextbox";
+            this.sortTextbox.ReadOnly = true;
+            this.sortTextbox.Size = new System.Drawing.Size(399, 697);
+            this.sortTextbox.TabIndex = 10;
             // 
             // GridStatus
             // 
@@ -203,14 +204,14 @@
             this.Controls.Add(this.StatusCopy);
             this.Controls.Add(this.GridStatus);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.sortTextbox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.AleOutput);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.seed_finder_textbox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.mat_mul_textbox);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.Sort_Button);
             this.Controls.Add(this.Ale_Program);
             this.Controls.Add(this.seed_finder_button);
             this.Controls.Add(this.mat_mul_button);
@@ -228,7 +229,7 @@
         private System.Windows.Forms.Button mat_mul_button;
         private System.Windows.Forms.Button seed_finder_button;
         private System.Windows.Forms.Button Ale_Program;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button Sort_Button;
         private System.Windows.Forms.TextBox mat_mul_textbox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -236,7 +237,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox AleOutput;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox sortTextbox;
         private System.Windows.Forms.TextBox GridStatus;
         private System.Windows.Forms.TextBox StatusCopy;
     }
