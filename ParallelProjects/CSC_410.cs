@@ -176,12 +176,22 @@ namespace ParallelProjects
                 var watch = System.Diagnostics.Stopwatch.StartNew();
                 var task = await Task.Run(() =>
                 {
-                    return seedFinder.run(input);
+                    return seedFinder.run(input) ;
                 });
                 watch.Stop();
                 seed_finder_button.Enabled = true;
                 var elapsedTime = (float)watch.ElapsedMilliseconds / 1000;
-                seed_finder_textbox.Text += Environment.NewLine + task + Environment.NewLine + elapsedTime.ToString() + " Seconds elapsed";
+                int num;
+                if (int.TryParse(task[task.Length-1].ToString(), out num))
+                {
+                    string output = task.Remove(task.Length - 1, 1);
+                    seed_finder_textbox.Text += Environment.NewLine + output + Environment.NewLine + elapsedTime.ToString() + " Seconds elapsed" + Environment.NewLine + "Found by thread: " + task.ElementAt(task.Length - 1);
+                }
+                else
+                {
+                    string output = task;
+                    seed_finder_textbox.Text += Environment.NewLine + output;
+                }
                 seed_finder_button.Text = "Start Seed Finder";
             }
         }
@@ -204,60 +214,68 @@ namespace ParallelProjects
             {
                 Sort_Button.Text = "Reset";
                 string n = sortTextbox.Text.Remove(0, 24);
-                int N;
-                N = Convert.ToInt32(n);
-                int[] A = new int[N];
-                Sorting sorting = new Sorting();
-
-                sorting.GenVals(A, N);
-                sortTextbox.Text += Environment.NewLine + "Array Presorting: " + Environment.NewLine;
-                int i = 0;
-                string randNums = "";
-                while (i < N)
+                int N = 0;
+                try
                 {
+                    N = Convert.ToInt32(n);
+                    int[] A = new int[N];
+
+                    Sorting sorting = new Sorting();
+
+                    sorting.GenVals(A, N);
+                    sortTextbox.Text += Environment.NewLine + "Array Presorting: " + Environment.NewLine;
+                    int i = 0;
+                    string randNums = "";
+                    while (i < N)
+                    {
+                        await Task.Run(() =>
+                        {
+                            randNums = "";
+                            while (i < i + 200 && i < N)
+                            {
+                                randNums += A[i] + " ";
+                                i++;
+                            }
+                        });
+                        Thread.Sleep(1000);
+                        sortTextbox.Text += randNums;
+                        i += 200;
+                    }
+
+                    string TimeTaken = "";
+                    var watch = System.Diagnostics.Stopwatch.StartNew();
                     await Task.Run(() =>
                     {
-                        randNums = "";
-                        while (i < i+200 && i < N)
-                        {
-                            randNums += A[i] + " ";
-                            i++;
-                        }
+                        sorting.sort(A, N);
                     });
-                    Thread.Sleep(1000);
-                    sortTextbox.Text += randNums;
-                    i += 200;
-                }
+                    watch.Stop();
+                    TimeTaken = ((float)watch.ElapsedMilliseconds / 1000).ToString();
+                    sortTextbox.Text += Environment.NewLine + "Array Post-sorting:" + Environment.NewLine;
 
-                string TimeTaken = "";
-                var watch = System.Diagnostics.Stopwatch.StartNew();
-                await Task.Run(() =>
-                {
-                    sorting.sort(A, N);
-                });
-                watch.Stop();
-                TimeTaken = ((float)watch.ElapsedMilliseconds / 1000).ToString();
-                sortTextbox.Text += Environment.NewLine + "Array Post-sorting:" + Environment.NewLine;
-
-                i = 0;
-                string sortedNums = "";
-                while (i < N)
-                {
-                    await Task.Run(() =>
+                    i = 0;
+                    string sortedNums = "";
+                    while (i < N)
                     {
-                        sortedNums = "";
-                        while (i < i + 200 && i < N)
+                        await Task.Run(() =>
                         {
-                            sortedNums += A[i] + " ";
-                            i++;
-                        }
-                    });
-                    Thread.Sleep(1000);
-                    sortTextbox.Text += sortedNums;
-                    i += 200;
-                }
+                            sortedNums = "";
+                            while (i < i + 200 && i < N)
+                            {
+                                sortedNums += A[i] + " ";
+                                i++;
+                            }
+                        });
+                        Thread.Sleep(1000);
+                        sortTextbox.Text += sortedNums;
+                        i += 200;
+                    }
 
-                sortTextbox.Text += Environment.NewLine + "Time took to sort: " + TimeTaken;
+                    sortTextbox.Text += Environment.NewLine + "Time took to sort: " + TimeTaken;
+                }
+                catch
+                {
+                    sortTextbox.Text += Environment.NewLine + "Invalid input, enter a positive integer";
+                }
             }
             else
             {
