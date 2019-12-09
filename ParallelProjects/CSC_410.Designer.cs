@@ -188,7 +188,6 @@
             this.GridStatus.ReadOnly = true;
             this.GridStatus.Size = new System.Drawing.Size(148, 19);
             this.GridStatus.TabIndex = 13;
-            this.GridStatus.TextChanged += new System.EventHandler(this.GridStatus_TextChanged);
             // 
             // StatusCopy
             // 

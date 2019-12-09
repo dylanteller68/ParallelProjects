@@ -156,11 +156,6 @@ namespace ParallelProjects
 			}
 		}
 
-		private void GridStatus_TextChanged(object sender, EventArgs e)
-		{
-
-		}
-
         private async void seed_finder_button_Click(object sender, EventArgs e)
         {
             if (seed_finder_button.Text == "Start Seed Finder")
@@ -216,30 +211,53 @@ namespace ParallelProjects
 
                 sorting.GenVals(A, N);
                 sortTextbox.Text += Environment.NewLine + "Array Presorting: " + Environment.NewLine;
-
-                int i;
-                for (i = 0; i < N; ++i)
+                int i = 0;
+                string randNums = "";
+                while (i < N)
                 {
-                    sortTextbox.Text += A[i] + " ";
+                    await Task.Run(() =>
+                    {
+                        randNums = "";
+                        while (i < i+200 && i < N)
+                        {
+                            randNums += A[i] + " ";
+                            i++;
+                        }
+                    });
+                    Thread.Sleep(1000);
+                    sortTextbox.Text += randNums;
+                    i += 200;
                 }
 
                 string TimeTaken = "";
+                var watch = System.Diagnostics.Stopwatch.StartNew();
                 await Task.Run(() =>
                 {
-                    var watch = System.Diagnostics.Stopwatch.StartNew();
                     sorting.sort(A, N);
-                    watch.Stop();
-                
-
-                TimeTaken = Convert.ToString(watch.ElapsedMilliseconds);
                 });
+                watch.Stop();
+                TimeTaken = ((float)watch.ElapsedMilliseconds / 1000).ToString();
+                sortTextbox.Text += Environment.NewLine + "Array Post-sorting:" + Environment.NewLine;
 
-                sortTextbox.Text += Environment.NewLine + "Array Post-sorting: Sorting took: " + TimeTaken + "ms" + Environment.NewLine;
-
-                for (i = 0; i < N; ++i)
+                i = 0;
+                string sortedNums = "";
+                while (i < N)
                 {
-                    sortTextbox.Text += A[i] + " ";
+                    await Task.Run(() =>
+                    {
+                        sortedNums = "";
+                        while (i < i + 200 && i < N)
+                        {
+                            sortedNums += A[i] + " ";
+                            i++;
+                        }
+                    });
+                    Thread.Sleep(1000);
+                    sortTextbox.Text += sortedNums;
+                    i += 200;
                 }
+
+                sortTextbox.Text += Environment.NewLine + "Time took to sort: " + TimeTaken;
             }
             else
             {
