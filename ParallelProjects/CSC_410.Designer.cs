@@ -99,6 +99,7 @@
             this.mat_mul_textbox.Multiline = true;
             this.mat_mul_textbox.Name = "mat_mul_textbox";
             this.mat_mul_textbox.ReadOnly = true;
+            this.mat_mul_textbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.mat_mul_textbox.Size = new System.Drawing.Size(399, 697);
             this.mat_mul_textbox.TabIndex = 4;
             // 
@@ -116,12 +117,12 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(655, 96);
+            this.label2.Location = new System.Drawing.Point(667, 96);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 29);
+            this.label2.Size = new System.Drawing.Size(84, 29);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Terminal";
+            this.label2.Text = "Output";
             // 
             // seed_finder_textbox
             // 
@@ -132,6 +133,7 @@
             this.seed_finder_textbox.Multiline = true;
             this.seed_finder_textbox.Name = "seed_finder_textbox";
             this.seed_finder_textbox.ReadOnly = true;
+            this.seed_finder_textbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.seed_finder_textbox.Size = new System.Drawing.Size(399, 697);
             this.seed_finder_textbox.TabIndex = 6;
             // 
@@ -152,6 +154,7 @@
             this.AleOutput.Multiline = true;
             this.AleOutput.Name = "AleOutput";
             this.AleOutput.ReadOnly = true;
+            this.AleOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.AleOutput.Size = new System.Drawing.Size(399, 697);
             this.AleOutput.TabIndex = 8;
             // 
@@ -172,6 +175,7 @@
             this.sortTextbox.Multiline = true;
             this.sortTextbox.Name = "sortTextbox";
             this.sortTextbox.ReadOnly = true;
+            this.sortTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.sortTextbox.Size = new System.Drawing.Size(399, 697);
             this.sortTextbox.TabIndex = 10;
             // 

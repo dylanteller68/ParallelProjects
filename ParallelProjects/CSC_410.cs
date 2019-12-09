@@ -201,7 +201,7 @@ namespace ParallelProjects
         {
             if (Sort_Button.Text == "Sort Start")
             {
-                sortTextbox.Text = "How many values to sort?";
+                sortTextbox.Text = "How many values to sort? ";
                 Sort_Button.Text = "Run";
                 sortTextbox.ReadOnly = false;
             }
