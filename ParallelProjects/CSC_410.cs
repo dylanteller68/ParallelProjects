@@ -62,7 +62,7 @@ namespace ParallelProjects
             }
         }
 
-		private void Ale_Program_Click(object sender, EventArgs e)
+		private async void Ale_Program_Click(object sender, EventArgs e)
 		{
 			Grid threadGrid = new Grid();
 
@@ -81,47 +81,55 @@ namespace ParallelProjects
 			GridStatus.Text = "Computing";
 			StatusCopy.Text = "Computing";
 
-			for (gen_count = 1; gen_count <= gen_limit; gen_count++)
-			{
-				Parallel.For(0, threadGrid.cell_count, i =>
-				{
-					temp_row = threadGrid.get_row(i);
-					temp_column = threadGrid.get_column(i);
+            for (gen_count = 1; gen_count <= gen_limit; gen_count++)
+            {
+                await Task.Run(() =>
+                {
+                    Parallel.For(0, threadGrid.cell_count, i =>
+                    {
+                        temp_row = threadGrid.get_row(i);
+                        temp_column = threadGrid.get_column(i);
 
-					if (gen_count % 2 == 0) //B -> A
-					{
-						temp = threadGrid.checker(B, temp_row, temp_column);
-						A[temp_row, temp_column] = temp;
-					}
-					else
-					{
-						temp = threadGrid.checker(A, temp_row, temp_column);
-						B[temp_row, temp_column] = temp;
-					}
-				});
+                        if (gen_count % 2 == 0) //B -> A
+                        {
+                            temp = threadGrid.checker(B, temp_row, temp_column);
+                            A[temp_row, temp_column] = temp;
+                        }
+                        else
+                        {
+                            temp = threadGrid.checker(A, temp_row, temp_column);
+                            B[temp_row, temp_column] = temp;
+                        }
+                    });
 
-				if (gen_count % 4 == 0) 
-				{ 
-					GridStatus.Text = "Computing";
-					StatusCopy.Text = "Computing";
-				} else { 
-					GridStatus.AppendText(" .");
-					StatusCopy.AppendText(" .");
-				}
+                    Thread.Sleep(2500);
+                });
 
-				AleOutput.AppendText($"\r\nGen: {gen_count}--");
+                if (gen_count % 4 == 0)
+                {
+                    GridStatus.Text = "Computing";
+                    StatusCopy.Text = "Computing";
+                }
+                else
+                {
+                    GridStatus.AppendText(" .");
+                    StatusCopy.AppendText(" .");
+                }
 
-				if (gen_count % 2 == 0)
-				{
-					AleOutput.AppendText("Grid A:");
-					printGrid(A);
-				}
-				else
-				{
-					AleOutput.AppendText("Grid B:");
-					printGrid(B);
-				}
-			}
+                AleOutput.AppendText($"\r\nGen: {gen_count}--");
+
+                if (gen_count % 2 == 0)
+                {
+                    AleOutput.AppendText("Grid A:");
+                    printGrid(A);
+                }
+                else
+                {
+                    AleOutput.AppendText("Grid B:");
+                    printGrid(B);
+                }
+            }
+
 
 			GridStatus.Text = "Complete!";
 			StatusCopy.Text = "Complete!";
@@ -189,7 +197,7 @@ namespace ParallelProjects
             CenterToScreen();
         }
 
-        private void Sort_Button_Click(object sender, EventArgs e)
+        private async void Sort_Button_Click(object sender, EventArgs e)
         {
             if (Sort_Button.Text == "Sort Start")
             {
@@ -199,7 +207,6 @@ namespace ParallelProjects
             }
             else if (Sort_Button.Text == "Run")
             {
-                
                 Sort_Button.Text = "Reset";
                 string n = sortTextbox.Text.Remove(0, 24);
                 int N;
@@ -215,11 +222,18 @@ namespace ParallelProjects
                 {
                     sortTextbox.Text += A[i] + " ";
                 }
-                var watch = System.Diagnostics.Stopwatch.StartNew();
-                sorting.sort(A, N);
-                watch.Stop();
 
-                string TimeTaken = Convert.ToString(watch.ElapsedMilliseconds);
+                string TimeTaken = "";
+                await Task.Run(() =>
+                {
+                    var watch = System.Diagnostics.Stopwatch.StartNew();
+                    sorting.sort(A, N);
+                    watch.Stop();
+                
+
+                TimeTaken = Convert.ToString(watch.ElapsedMilliseconds);
+                });
+
                 sortTextbox.Text += Environment.NewLine + "Array Post-sorting: Sorting took: " + TimeTaken + "ms" + Environment.NewLine;
 
                 for (i = 0; i < N; ++i)
